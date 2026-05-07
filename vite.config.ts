@@ -8,22 +8,24 @@ const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 
   version: string;
 };
 
-function readGitCommit() {
+function readGitMetadata() {
   try {
     const log = execSync('git log -n 30 --format=%h%x00%s', { encoding: 'utf8' }).trim();
     const sourceLine = log.split('\n').find((line) => !line.endsWith('chore: publish pages build'));
-    return (
+    const commit =
       sourceLine?.split('\0')[0] ??
-      execSync('git rev-parse --short HEAD', { encoding: 'utf8' }).trim()
-    );
+      execSync('git rev-parse --short HEAD', { encoding: 'utf8' }).trim();
+    const builtAt = execSync(`git show -s --format=%cI ${commit}`, { encoding: 'utf8' }).trim();
+    return { commit, builtAt };
   } catch {
-    return 'local';
+    return { commit: 'local', builtAt: new Date().toISOString() };
   }
 }
 
 const base = process.env.VITE_APP_BASE ?? '/everything-audio-looper/';
-const builtAt = new Date().toISOString();
-const commit = process.env.VITE_GIT_COMMIT ?? readGitCommit();
+const gitMetadata = readGitMetadata();
+const builtAt = process.env.VITE_BUILT_AT ?? gitMetadata.builtAt;
+const commit = process.env.VITE_GIT_COMMIT ?? gitMetadata.commit;
 const version = process.env.VITE_APP_VERSION ?? pkg.version;
 
 export default defineConfig({
