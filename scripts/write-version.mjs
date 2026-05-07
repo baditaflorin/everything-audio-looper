@@ -5,7 +5,12 @@ const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url),
 
 function gitCommit() {
   try {
-    return execSync('git rev-parse --short HEAD', { encoding: 'utf8' }).trim();
+    const log = execSync('git log -n 30 --format=%h%x00%s', { encoding: 'utf8' }).trim();
+    const sourceLine = log.split('\n').find((line) => !line.endsWith('chore: publish pages build'));
+    return (
+      sourceLine?.split('\0')[0] ??
+      execSync('git rev-parse --short HEAD', { encoding: 'utf8' }).trim()
+    );
   } catch {
     return 'local';
   }
