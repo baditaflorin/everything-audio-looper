@@ -57,6 +57,7 @@ export default defineConfig({
         ]
       },
       workbox: {
+        sourcemap: false,
         globPatterns: ['**/*.{js,css,html,ico,png,svg,json,wasm}'],
         navigateFallback: `${base}index.html`
       }

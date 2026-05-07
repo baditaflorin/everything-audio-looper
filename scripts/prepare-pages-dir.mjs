@@ -7,6 +7,7 @@ const removable = [
   '404.html',
   'manifest.webmanifest',
   'sw.js',
+  'sw.js.map',
   'version.json',
   'pwa-icon.svg'
 ];
