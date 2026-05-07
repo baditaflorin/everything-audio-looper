@@ -21,4 +21,3 @@ Use typed `AppError` objects for expected failures and a global error toast for 
 ## Alternatives Considered
 
 - Throw raw `Error` values everywhere. Rejected because recovery messaging becomes inconsistent.
-

@@ -25,4 +25,3 @@ The app runs entirely in the browser using MediaDevices, Web Audio, IndexedDB, a
 
 - Mode B: GitHub Pages plus pre-built data. Rejected because v1 has no shared static dataset.
 - Mode C: GitHub Pages plus Docker backend. Rejected because server audio processing would add privacy and operations cost without a v1 requirement.
-

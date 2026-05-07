@@ -46,4 +46,3 @@ flowchart LR
 - Optional WASM analysis lives in `src/workers`.
 
 No backend, server database, auth service, or runtime secret store exists in v1.
-

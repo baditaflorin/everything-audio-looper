@@ -31,4 +31,3 @@ Set `emptyOutDir: false` so Vite does not delete markdown documentation in `docs
 
 - `gh-pages` branch. Rejected to keep all deliverables visible on `main`.
 - Publishing from repository root. Rejected because root also contains source and tooling files.
-

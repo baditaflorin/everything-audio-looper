@@ -28,4 +28,3 @@ Commit `.env.example` with placeholders. Block real `.env*`, private keys, and c
 ## Alternatives Considered
 
 - Runtime config API. Rejected because there is no backend.
-

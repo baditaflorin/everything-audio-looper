@@ -19,4 +19,3 @@ We pledge to make participation in this project harassment-free for everyone.
 ## Enforcement
 
 Project maintainers may remove comments, issues, or contributions that violate this code.
-

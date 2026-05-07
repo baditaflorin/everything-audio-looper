@@ -1,0 +1,11 @@
+title = "Everything Audio Looper gitleaks config"
+
+[allowlist]
+description = "Allow public project URLs"
+paths = []
+regexes = [
+  '''https://www\.paypal\.com/paypalme/florinbadita''',
+  '''https://github\.com/baditaflorin/everything-audio-looper''',
+  '''https://baditaflorin\.github\.io/everything-audio-looper/'''
+]
+

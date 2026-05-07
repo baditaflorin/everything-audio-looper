@@ -26,4 +26,3 @@ Deploy only to GitHub Pages:
 ## Alternatives Considered
 
 - Docker backend deployment. Rejected by ADR 0001.
-

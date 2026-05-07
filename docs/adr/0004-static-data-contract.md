@@ -37,4 +37,3 @@ The app also receives the same values through Vite environment variables for fir
 
 - Hardcode version text in React. Rejected because commit and build time should be generated.
 - Fetch GitHub API at runtime. Rejected because it is unnecessary and less offline-friendly.
-

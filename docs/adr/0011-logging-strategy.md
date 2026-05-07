@@ -20,4 +20,3 @@ Use a tiny browser logger that emits debug logs only in development. Production 
 ## Alternatives Considered
 
 - Client log ingestion endpoint. Rejected because it would introduce a backend and privacy concerns.
-

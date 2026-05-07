@@ -31,4 +31,3 @@ Run `npm audit --audit-level=high` as part of security checks.
 ## Alternatives Considered
 
 - Custom state/data libraries. Rejected because battle-tested libraries are preferred.
-

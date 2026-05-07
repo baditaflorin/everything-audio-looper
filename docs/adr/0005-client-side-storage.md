@@ -22,4 +22,3 @@ Use IndexedDB through `idb` for kit metadata, normalized sample PCM, BPM, and pa
 
 - OPFS. Good fit for larger audio projects, but IndexedDB is simpler for v1 kit objects.
 - Server persistence. Rejected by ADR 0001.
-

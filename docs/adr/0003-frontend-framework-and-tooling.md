@@ -23,4 +23,3 @@ Use React, TypeScript strict mode, Vite, Tailwind CSS, TanStack Query, zod, idb,
 
 - Vanilla TypeScript. Rejected because the UI state is non-trivial.
 - Next.js or Remix. Rejected because v1 needs no server runtime.
-

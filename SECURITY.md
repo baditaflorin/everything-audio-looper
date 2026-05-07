@@ -9,4 +9,3 @@ The latest tagged release is supported.
 Please report security issues by email to florin@badita.ro.
 
 Do not open a public issue for secrets, privacy leaks, or exploitable bugs.
-

@@ -28,4 +28,3 @@ Hooks:
 ## Alternatives Considered
 
 - Lefthook. Rejected to keep the hook system transparent and dependency-light.
-

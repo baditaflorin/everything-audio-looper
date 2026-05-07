@@ -20,4 +20,3 @@ Do not include analytics in v1. Observability is local: error toasts, visible an
 ## Alternatives Considered
 
 - Plausible analytics. Rejected for v1 because usage insight is not required to validate the core local audio workflow.
-

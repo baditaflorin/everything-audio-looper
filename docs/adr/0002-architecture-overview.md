@@ -28,4 +28,3 @@ Use these module boundaries:
 
 - Single-file prototype. Rejected because analysis, playback, and recording lifecycles would become tightly coupled.
 - Runtime backend for analysis. Rejected by ADR 0001.
-

@@ -23,4 +23,3 @@ Lazy-load Pyodide in a web worker and install/use librosa for analysis when the 
 - Bundle Pyodide into the first-load app. Rejected because it would blow the asset budget.
 - Use a server-side Python backend. Rejected by ADR 0001.
 - Use only custom TypeScript DSP. Rejected because the pitch specifically values librosa/WASM.
-

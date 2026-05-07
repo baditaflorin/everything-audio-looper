@@ -20,4 +20,3 @@ Do not include a Go backend, `cmd/`, `internal/`, `pkg/`, `api/`, or Docker runt
 ## Alternatives Considered
 
 - Add an empty Go skeleton. Rejected because unused scaffolding creates maintenance noise.
-

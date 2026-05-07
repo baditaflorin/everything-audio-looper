@@ -19,4 +19,3 @@ Saved kits and preferences are stored in your browser using IndexedDB and localS
 ## Analytics
 
 No analytics are included in v1.
-

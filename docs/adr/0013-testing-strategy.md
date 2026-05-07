@@ -25,4 +25,3 @@ Use:
 ## Alternatives Considered
 
 - Full microphone automation. Rejected because it is brittle and unnecessary for fast pre-push checks.
-

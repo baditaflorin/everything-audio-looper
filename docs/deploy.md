@@ -44,4 +44,3 @@ https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pag
 - GitHub Pages does not support `_headers` or `_redirects`.
 - The SPA fallback is `docs/404.html`.
 - Service worker scope must stay under `/everything-audio-looper/`.
-

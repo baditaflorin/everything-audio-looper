@@ -20,4 +20,3 @@ No data-generation pipeline is included in v1. `make data` is intentionally a no
 ## Alternatives Considered
 
 - Generate demo samples at build time. Rejected because demo sounds can be synthesized directly in the browser.
-

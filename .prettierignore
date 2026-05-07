@@ -1,0 +1,14 @@
+node_modules/
+coverage/
+playwright-report/
+test-results/
+docs/assets/
+docs/sw.js
+docs/sw.js.map
+docs/workbox-*.js
+docs/workbox-*.js.map
+docs/index.html
+docs/404.html
+docs/manifest.webmanifest
+package-lock.json
+
