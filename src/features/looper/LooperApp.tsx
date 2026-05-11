@@ -14,7 +14,12 @@ import {
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { analyzeRecording } from '../audio/audioAnalysis';
 import { createDemoKit } from '../audio/demoKit';
-import { createTechnoPattern, toggleStep } from '../audio/loopPattern';
+import {
+  GENRE_PATTERNS,
+  createGenrePattern,
+  toggleStep,
+  type GenrePatternId
+} from '../audio/loopPattern';
 import { WebAudioEngine } from '../audio/webAudioEngine';
 import type { AnalyzerMode, DrumKit, Pattern } from '../audio/types';
 import { getAnalyzerMode, getLatestKit, saveAnalyzerMode, saveKit } from '../storage/kitStore';
@@ -35,6 +40,7 @@ export function LooperApp() {
   const engine = useRef(new WebAudioEngine());
   const [kit, setKit] = useState<DrumKit | undefined>();
   const [pattern, setPattern] = useState<Pattern>([]);
+  const [genre, setGenre] = useState<GenrePatternId>('techno');
   const [isPlaying, setIsPlaying] = useState(false);
   const [activeStep, setActiveStep] = useState(-1);
   const [analyzerMode, setAnalyzerMode] = useState<AnalyzerMode>('fast-js');
@@ -61,13 +67,26 @@ export function LooperApp() {
     return () => audioEngine.stop();
   }, []);
 
-  const installKit = useCallback(async (nextKit: DrumKit, message: string) => {
-    setKit(nextKit);
-    const nextPattern = createTechnoPattern(nextKit.slices);
-    setPattern(nextPattern);
-    await engine.current.loadKit(nextKit);
-    setStatus({ kind: 'success', message });
-  }, []);
+  const installKit = useCallback(
+    async (nextKit: DrumKit, message: string) => {
+      setKit(nextKit);
+      const nextPattern = createGenrePattern(nextKit.slices, genre);
+      setPattern(nextPattern);
+      await engine.current.loadKit(nextKit);
+      setStatus({ kind: 'success', message });
+    },
+    [genre]
+  );
+
+  const applyGenre = useCallback(
+    (nextGenre: GenrePatternId) => {
+      setGenre(nextGenre);
+      if (kit) {
+        setPattern(createGenrePattern(kit.slices, nextGenre));
+      }
+    },
+    [kit]
+  );
 
   async function handleDemo() {
     setStatus({ kind: 'working', message: 'Synthesizing a kitchen-table recording.' });
@@ -300,6 +319,26 @@ export function LooperApp() {
             </div>
 
             <StatusPanel status={status} />
+            <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="Pattern style">
+              {GENRE_PATTERNS.map((option) => (
+                <button
+                  key={option.id}
+                  type="button"
+                  role="radio"
+                  aria-checked={option.id === genre}
+                  title={option.description}
+                  disabled={!kit}
+                  onClick={() => applyGenre(option.id)}
+                  className={`inline-flex min-h-9 items-center rounded-full border px-3 py-1 text-xs font-semibold transition disabled:cursor-not-allowed disabled:opacity-40 ${
+                    option.id === genre
+                      ? 'border-mint bg-mint text-ink'
+                      : 'border-line bg-ink text-slate-300 hover:border-mint'
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
             <PadGrid slices={slices} onTrigger={(index) => void handlePlayPad(index)} />
             <SequencerGrid
               activeStep={activeStep}
